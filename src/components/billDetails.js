@@ -6,11 +6,7 @@ export default function BillDetails(props) {
 
      return (
       <div>
-        <form>
-          <input type="number" name={props.name} onChange={props.state}></input>
-        </form>
-
-        
+          <input min = "1" type="number" name={props.name} value = {props.value} onChange={props.changingState}></input>
       </div>
     );
 }
