@@ -1,21 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import BillDetails from "./components/billDetails";
 import Button from "./components/button";
 
 function App() {
-  const [bill, setBill] = React.useState({
-    billAmount: 0,
-    numberOfPeople: 0,
-    customTipVisible: false,
-    customTipAmount: 0,
+  const [bill, setBill] = useState({
+    billAmount: "",
+    numberOfPeople: "",
+    selectedTip: "",
   });
 
-  console.log(bill);
+  const [customTip, setCustomTip] = useState("");
 
-  function billAmount(event) {
+  function totalBill(event) {
     const { name, value } = event.target;
-
     setBill((prevState) => {
       return {
         ...prevState,
@@ -24,55 +22,48 @@ function App() {
     });
   }
 
-  //function that takes in tip percentage and calculates tip
-  function handleClick(event) {
-    event.preventDefault();
-    console.log(event);
-    const value = event.target.value;
-    const tipPercentage = parseInt(value);
-    const billAmount = parseInt(bill.billAmount);
-    const error =
-      "Invalid entry. <Bill> and <Number of People> must be greater than 0.";
+  useEffect(() => {
+    if (customTip !== "") {
+      handleTipSelection("custom");
+    }
+  }, [customTip]);
 
-    if(event.target.value > 0){
-      if (bill.billAmount > 0 && bill.numberOfPeople > 0) {
-        const tipAmount = (tipPercentage / 100) * billAmount;
-        const tipPerPerson = tipAmount / bill.numberOfPeople;
-        console.log(tipAmount);
-      } else {
-        console.log(error);
-      }
+  console.log("bill amount", bill);
+
+  function handleTipSelection(tip, event) {
+    if (event) {
+      event.preventDefault();
+    }
+
+    console.log("tip:", tip);
+    console.log("customTip:", customTip);
+
+    if (tip === "custom") {
+      setBill((prevState) => {
+        return {
+          ...prevState,
+          selectedTip: customTip,
+        };
+      });
     } else {
-      console.log('Please select a tip percentage.')
+      setBill((prevState) => {
+        return {
+          ...prevState,
+          selectedTip: tip,
+        };
+      });
     }
   }
 
-
-   //function that takes in CUSTOM TIP PERCENTAGE and calculates tip 
-   function calculateCustomTip(event) {
-    console.log('calculating custom tip');
-    const customTipValue = event.target.value;
-    
-    
-   }
+  const calculateTips = (event) => {
+    event.preventDefault(); // Prevent form submission
+  };
 
   //function that resets the form when "Reset" button is clicked
   function handleReset() {
     setBill({
-      billAmount: 0,
-      numberOfPeople: 0,
-      customTipVisible: false,
-      customTipAmount: 0,
-    });
-  }
-
-  //function that handles click of the <<CUSTOM>> button
-  function handleCustomTipClick() {
-    setBill((prevState) => {
-      return {
-        ...prevState,
-        customTipVisible: true,
-      };
+      billAmount: "",
+      numberOfPeople: "",
     });
   }
 
@@ -80,38 +71,47 @@ function App() {
     <>
       <form>
         <BillDetails
-          changingState={billAmount}
+          changingState={totalBill}
           value={bill.billAmount}
           name="billAmount"
         />
-        <Button tip="0" handleClick={handleClick} />
-        <Button tip="5" handleClick={handleClick} />
-        <Button tip="10" handleClick={handleClick} />
-        <Button tip="15" handleClick={handleClick} />
-        <Button tip="20" handleClick={handleClick} />
-        <Button tip="25" handleClick={handleClick} />
-        <Button tip="50" handleClick={handleClick} />
+        <Button
+          tip={10}
+          handleClick={(event) => handleTipSelection(10, event)}
+          name="selectedTip"
+          value={bill.selectedTip}
+        />
+        <Button
+          tip={20}
+          handleClick={(event) => handleTipSelection(20, event)}
+          name="selectedTip"
+          value={bill.selectedTip}
+        />
+        <Button
+          tip={50}
+          handleClick={(event) => handleTipSelection(50, event)}
+          name="selectedTip"
+          value={bill.selectedTip}
+        />
         <BillDetails
-          changingState={billAmount}
+          changingState={totalBill}
           value={bill.numberOfPeople}
           name="numberOfPeople"
         />
-
-        <button type="button" onClick={handleCustomTipClick}>
-          Custom
-        </button>
-        {bill.customTipVisible ? (
-          <BillDetails
-            changingState={billAmount}
-            handleFocus={calculateCustomTip}
-            value={bill.customTip}
-            name="customTipAmount"
-          />
-        ) : null}
-
         <button type="button" onClick={handleReset}>
           Reset
         </button>
+        <input
+          type="number"
+          placeholder="Custom"
+          value={customTip}
+          onChange={(event) => {
+            if (event.target.value !== "") {
+              setCustomTip(event.target.value);
+            }
+          }}
+          name="selectedTip"
+        />
       </form>
     </>
   );
