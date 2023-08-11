@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import BillDetails from "./components/billDetails";
 import Button from "./components/button";
+import { eventWrapper } from "@testing-library/user-event/dist/utils";
 
 function App() {
   const [bill, setBill] = useState({
@@ -25,6 +26,7 @@ function App() {
   useEffect(() => {
     if (customTip !== "") {
       handleTipSelection("custom");
+      calculateTips();
     }
   }, [customTip]);
 
@@ -53,10 +55,27 @@ function App() {
         };
       });
     }
+
   }
 
   const calculateTips = (event) => {
-    event.preventDefault(); // Prevent form submission
+    if (event) {
+      event.preventDefault();
+    }
+
+    const totalBill = bill.billAmount;
+    const numberOfPeople = bill.numberOfPeople
+    const selectedTip = bill.selectedTip;
+    let tip = '';
+    let tipPerPerson = '';
+    
+
+    if(totalBill !== undefined && numberOfPeople !== undefined && selectedTip !== undefined) {
+      tip = (selectedTip / 100) * totalBill; //calculate total tip
+      tipPerPerson = tip / numberOfPeople; //calculate tip per person
+      console.log(`total tip is ${tip}, and tip per person is ${tipPerPerson}`);
+    }
+    
   };
 
   //function that resets the form when "Reset" button is clicked
@@ -69,27 +88,39 @@ function App() {
 
   return (
     <>
-      <form>
+      <form onSubmit={(event) => event.preventDefault()}>
         <BillDetails
-          changingState={totalBill}
+          changingState={(event) => {
+            totalBill(event);
+            calculateTips(event);
+          }}
           value={bill.billAmount}
           name="billAmount"
         />
         <Button
           tip={10}
-          handleClick={(event) => handleTipSelection(10, event)}
+          handleClick={(event) => {
+            handleTipSelection(10, event);
+            calculateTips(event);
+          }}
           name="selectedTip"
           value={bill.selectedTip}
         />
         <Button
           tip={20}
-          handleClick={(event) => handleTipSelection(20, event)}
+          handleClick={(event) => {
+            handleTipSelection(20, event);
+            calculateTips(event);
+          }}
           name="selectedTip"
           value={bill.selectedTip}
         />
         <Button
           tip={50}
-          handleClick={(event) => handleTipSelection(50, event)}
+          handleClick={(event) => {
+            handleTipSelection(50, event);
+            calculateTips(event);
+          }}
           name="selectedTip"
           value={bill.selectedTip}
         />
