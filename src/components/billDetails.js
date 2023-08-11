@@ -9,7 +9,7 @@ export default function BillDetails(props) {
         name={props.name}
         value={props.value}
         onChange={props.changingState}
-        onFocus={props.handleFocus}
+        onKeyDown={props.onKeyDown}
       ></input>
     </div>
   );
