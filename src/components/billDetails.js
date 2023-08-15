@@ -4,12 +4,12 @@ export default function BillDetails(props) {
   return (
     <div>
       <input
-        min="1"
-        type="number"
+        type={props.type}
+        min={props.min} 
         name={props.name}
         value={props.value}
         onChange={props.changingState}
-        onKeyDown={props.onKeyDown}
+        onKeyDown={props.handleKeyDown}
       ></input>
     </div>
   );
