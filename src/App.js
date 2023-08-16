@@ -119,30 +119,46 @@ function App() {
     Math.round(totalTips.totalPerPerson * 100) / 100;
 
   return (
-      <div className="tip-calculator">
-        <form onSubmit={(event) => event.preventDefault()}>
-          <label htmlFor="bill">Bill</label>
-          <BillDetails
-            type="number"
-            id="bill"
-            placeholder={0}
-            min={1}
-            changingState={(event) => {
-              if (parseFloat(event.target.value) !== 0) {
-                totalBill(event);
-                calculateTips(event);
-              } else {
-                console.log("Value has to be greater than 0.");
-              }
+    <div className="tip-calculator">
+      <form onSubmit={(event) => event.preventDefault()}>
+        <label className="tip-calculator__label" htmlFor="bill">
+          Bill
+        </label>
+        <BillDetails
+          type="number"
+          id="bill"
+          placeholder={0}
+          min={1}
+          changingState={(event) => {
+            if (parseFloat(event.target.value) !== 0) {
+              totalBill(event);
+              calculateTips(event);
+            } else {
+              console.log("Value has to be greater than 0.");
+            }
+          }}
+          value={bill.billAmount}
+          name="billAmount"
+          handleKeyDown={(event) => {
+            preventKeyPress(event);
+          }}
+        />
+        <label className="tip-calculator__label selectTip" htmlFor="selectTip">
+          Select Tip %
+        </label>
+        <br></br>
+        <div className="tip-calculator__button-container">
+          <Button
+            id="selectTip"
+            tip={5}
+            handleClick={(event) => {
+              handleTipSelection(5, event);
+              calculateTips(event);
+              setCustomTip("");
             }}
-            value={bill.billAmount}
-            name="billAmount"
-            handleKeyDown={(event) => {
-              preventKeyPress(event);
-            }}
+            name="selectedTip"
+            value={bill.selectedTip}
           />
-          <label htmlFor="selectTip">Select Tip %</label>
-          <br></br>
           <Button
             id="selectTip"
             tip={10}
@@ -156,9 +172,20 @@ function App() {
           />
           <Button
             id="selectTip"
-            tip={20}
+            tip={15}
             handleClick={(event) => {
-              handleTipSelection(20, event);
+              handleTipSelection(15, event);
+              calculateTips(event);
+              setCustomTip("");
+            }}
+            name="selectedTip"
+            value={bill.selectedTip}
+          />
+          <Button
+            id="selectTip"
+            tip={25}
+            handleClick={(event) => {
+              handleTipSelection(25, event);
               calculateTips(event);
               setCustomTip("");
             }}
@@ -177,6 +204,7 @@ function App() {
             value={bill.selectedTip}
           />
           <input
+            className="tip-calculator__button tip-calculator__customTip-button"
             type="number"
             min={1}
             placeholder="Custom"
@@ -194,33 +222,42 @@ function App() {
             }}
             name="customTip"
           />
-          <br />
-          <label htmlFor="numberOfPeople">Number of People</label>
-          <BillDetails
-            type="number"
-            id="numberOfPeople"
-            placeholder={0}
-            min={1}
-            changingState={(event) => {
-              totalBill(event);
-              calculateTips(event);
-            }}
-            value={bill.numberOfPeople}
-            name="numberOfPeople"
-            handleKeyDown={(event) => {
-              preventKeyPress(event);
-            }}
-            handleError={bill.numberOfPeople}
-          />
-        </form>
+        </div>
+        <br />
+        <label className="tip-calculator__label" htmlFor="numberOfPeople">
+          Number of People
+        </label>
+        <BillDetails
+          type="number"
+          id="numberOfPeople"
+          placeholder={0}
+          min={1}
+          changingState={(event) => {
+            totalBill(event);
+            calculateTips(event);
+          }}
+          value={bill.numberOfPeople}
+          name="numberOfPeople"
+          handleKeyDown={(event) => {
+            preventKeyPress(event);
+          }}
+          handleError={bill.numberOfPeople}
+        />
+      </form>
+      <div className="tip-calculator__results">
         <Results
           totalBillPerPerson={displayTotalPerPerson}
           perPersonTip={displayTipPerPerson}
         />
-        <button type="button" onClick={handleReset}>
+        <button
+          className="tip-calculator__button tip-calculator__reset-button"
+          type="button"
+          onClick={handleReset}
+        >
           Reset
         </button>
       </div>
+    </div>
   );
 }
 
