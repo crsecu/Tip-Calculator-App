@@ -1,0 +1,21 @@
+body {
+  color: var(--label);
+}
+
+
+
+
+.tip-calculator {
+ background-color: var(--calculator--background);
+ margin-top: 8rem; /*adjust this after adding logo images*/
+ padding: 1.5rem;
+ border-radius: 17px 17px 0 0;
+}
+
+
+@media screen and (max-width: 600px) {
+  body {
+      background-color:pink;
+  }
+}
+
