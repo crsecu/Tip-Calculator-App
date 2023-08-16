@@ -13,6 +13,7 @@ export default function BillDetails(props) {
         onChange={props.changingState}
         onKeyDown={props.handleKeyDown}
       ></input>
+      {props.handleError === "" && <span>Can't be 0.</span>}
     </div>
   );
 }

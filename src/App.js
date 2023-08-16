@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import BillDetails from "./components/billDetails";
 import Button from "./components/button";
+import Results from "./components/results";
 import { eventWrapper } from "@testing-library/user-event/dist/utils";
 
 function App() {
@@ -67,6 +68,8 @@ function App() {
     const selectedTip = bill.selectedTip;
     let tip = "";
     let tipPerPerson = "";
+    let billPerPerson = "";
+    let totalPerPerson = "";
 
     if (totalBill === undefined) {
       console.error("Total bill is missing.");
@@ -75,13 +78,15 @@ function App() {
     } else if (selectedTip === undefined) {
       console.error("Selected tip percentage is missing.");
     } else {
+      billPerPerson = totalBill / numberOfPeople; //calculate bill per person before tips
       tip = (selectedTip / 100) * totalBill; // calculate total tip
       tipPerPerson = tip / numberOfPeople; // calculate tip per person
+      totalPerPerson = billPerPerson + tipPerPerson; //calculate total per person, including tips
     }
 
     return {
-      tip: tip,
       tipPerPerson: tipPerPerson,
+      totalPerPerson: totalPerPerson,
     };
   };
 
@@ -105,6 +110,14 @@ function App() {
   }
 
   console.log("print tips", calculateTips());
+  // display results
+  const totalTips = calculateTips();
+  const displayTotalTips = totalTips.tip;
+
+  // truncate numbers to 2 decimal places
+  const displayTipPerPerson = Math.round(totalTips.tipPerPerson * 100) / 100;
+  const displayTotalPerPerson =
+    Math.round(totalTips.totalPerPerson * 100) / 100;
 
   return (
     <>
@@ -134,6 +147,7 @@ function App() {
           handleClick={(event) => {
             handleTipSelection(10, event);
             calculateTips(event);
+            setCustomTip("");
           }}
           name="selectedTip"
           value={bill.selectedTip}
@@ -143,6 +157,7 @@ function App() {
           handleClick={(event) => {
             handleTipSelection(20, event);
             calculateTips(event);
+            setCustomTip("");
           }}
           name="selectedTip"
           value={bill.selectedTip}
@@ -152,6 +167,7 @@ function App() {
           handleClick={(event) => {
             handleTipSelection(50, event);
             calculateTips(event);
+            setCustomTip("");
           }}
           name="selectedTip"
           value={bill.selectedTip}
@@ -194,11 +210,16 @@ function App() {
           handleKeyDown={(event) => {
             preventKeyPress(event);
           }}
+          handleError={bill.numberOfPeople}
         />
-        <button type="button" onClick={handleReset}>
-          Reset
-        </button>
       </form>
+      <Results
+        totalBillPerPerson={displayTotalPerPerson}
+        perPersonTip={displayTipPerPerson}
+      />
+      <button type="button" onClick={handleReset}>
+        Reset
+      </button>
     </>
   );
 }
