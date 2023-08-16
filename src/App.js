@@ -68,13 +68,15 @@ function App() {
     let tip = "";
     let tipPerPerson = "";
 
-    if (
-      totalBill !== undefined &&
-      numberOfPeople > 0 &&
-      selectedTip !== undefined
-    ) {
-      tip = (selectedTip / 100) * totalBill; //calculate total tip
-      tipPerPerson = tip / numberOfPeople; //calculate tip per person
+    if (totalBill === undefined) {
+      console.error("Total bill is missing.");
+    } else if (numberOfPeople === undefined || numberOfPeople <= 0) {
+      console.error("Number of people must be a positive value.");
+    } else if (selectedTip === undefined) {
+      console.error("Selected tip percentage is missing.");
+    } else {
+      tip = (selectedTip / 100) * totalBill; // calculate total tip
+      tipPerPerson = tip / numberOfPeople; // calculate tip per person
     }
 
     return {
@@ -107,12 +109,19 @@ function App() {
   return (
     <>
       <form onSubmit={(event) => event.preventDefault()}>
+        <label htmlFor="bill">Bill</label>
         <BillDetails
           type="number"
+          id="bill"
+          placeholder={0}
           min={1}
           changingState={(event) => {
-            totalBill(event);
-            calculateTips(event);
+            if (parseFloat(event.target.value) !== 0) {
+              totalBill(event);
+              calculateTips(event);
+            } else {
+              console.log("Value has to be greater than 0.");
+            }
           }}
           value={bill.billAmount}
           name="billAmount"
@@ -147,12 +156,38 @@ function App() {
           name="selectedTip"
           value={bill.selectedTip}
         />
-        <BillDetails
+        <input
           type="number"
           min={1}
+          placeholder="Custom"
+          value={customTip}
+          onChange={(event) => {
+            if (parseFloat(event.target.value) !== 0) {
+              setCustomTip(event.target.value);
+              calculateTips(event);
+            } else {
+              console.log("Value has to be greater than 0.");
+            }
+          }}
+          onKeyDown={(event) => {
+            preventKeyPress(event);
+          }}
+          name="customTip"
+        />
+        <br />
+        <label htmlFor="numberOfPeople">Number of People</label>
+        <BillDetails
+          type="number"
+          id="numberOfPeople"
+          placeholder={0}
+          min={1}
           changingState={(event) => {
-            totalBill(event);
-            calculateTips();
+            if (parseFloat(event.target.value) !== 0) {
+              totalBill(event);
+              calculateTips(event);
+            } else {
+              console.log("Value has to be greater than 0.");
+            }
           }}
           value={bill.numberOfPeople}
           name="numberOfPeople"
@@ -163,19 +198,6 @@ function App() {
         <button type="button" onClick={handleReset}>
           Reset
         </button>
-        <input
-          type="number"
-          placeholder="Custom"
-          value={customTip}
-          onChange={(event) => {
-            setCustomTip(event.target.value);
-            calculateTips(event);
-          }}
-          onKeyDown={(event) => {
-            preventKeyPress(event);
-          }}
-          name="customTip"
-        />
       </form>
     </>
   );

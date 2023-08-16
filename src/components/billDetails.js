@@ -5,6 +5,8 @@ export default function BillDetails(props) {
     <div>
       <input
         type={props.type}
+        id={props.id}
+        placeholder={props.placeholder}
         min={props.min} 
         name={props.name}
         value={props.value}
