@@ -9,12 +9,12 @@ export default function Results(props) {
             <div>
                 <span>Tip Amount</span>
                 <span>/person </span>
-                <span> {props.perPersonTip}</span>
+                {props.perPersonTip === 0  ? <span> $0.00</span> : <span> {props.perPersonTip}</span>}
             </div>
             <div>
                 <span>Total </span>
                 <span>/person </span>
-                <span> {props.totalBillPerPerson}</span>
+                {props.totalBillPerPerson === 0 ? <span> $0.00</span> : <span> {props.totalBillPerPerson}</span>}
             </div>
             
         </div>

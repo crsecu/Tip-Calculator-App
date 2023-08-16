@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import "../styles/billDetails.css";
 
 export default function BillDetails(props) {
   return (
-    <div>
+    <div className="">
       <input
+        className="bill-details__input"
         type={props.type}
         id={props.id}
         placeholder={props.placeholder}
@@ -13,7 +15,7 @@ export default function BillDetails(props) {
         onChange={props.changingState}
         onKeyDown={props.handleKeyDown}
       ></input>
-      {props.handleError === "" && <span>Can't be 0.</span>}
+      {props.handleError === 0 && <span>Can't be 0.</span>}
     </div>
   );
 }

@@ -1,13 +1,22 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Define CSS Variables*/
+:root {
+  --background: hsl(185, 41%, 84%);
+  --calculator--background: hsl(0, 0%, 100%);
+  --dark-green: hsl(183, 100%, 15%); /*this color is used for: predefined buttons, input font color, reset button font color */
+  --dollar-amount: hsl(172, 67%, 45%);
+  --label: hsl(186, 14%, 43%);
+  --placeholder: hsl(184, 14%, 56%); /*this color is used for the placeholder values inside the input fields*/
+  --input--background: hsl(189, 41%, 97%); 
+  --error-message: hsl(24, 100%, 65%);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+body {
+  margin: 0;
+  font-family: 'Space Mono', monospace;
+  box-sizing: border-box;
+  font-size: 1rem;
+  font-weight: 700;
+  background-color: var(--background);
 }
+

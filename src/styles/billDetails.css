@@ -1,0 +1,9 @@
+.bill-details__input{
+    background-color:var(--input--background);
+    border: none;
+    padding: 8px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    font-family: inherit;
+    color: var(--dark-green);
+}
