@@ -1,0 +1,32 @@
+.tip-calculator__button-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  row-gap: 10px;
+}
+
+.tip-calculator__button {
+  background-color: var(--dark-green);
+  width: calc(50% - 10px);
+  border: none;
+  padding: 8px;
+  font-family: inherit;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--calculator--background);
+  border-radius: 5px;
+}
+
+.tip-calculator__customTip-button {
+  box-sizing: border-box;
+  background-color: var(--input--background);
+}
+
+.tip-calculator__reset-button {
+  background-color: var(--dollar-amount);
+  width: 100%;
+  padding: 4px;
+  text-transform: uppercase;
+  font-size: 1rem;
+  color: var(--dark-green);
+}

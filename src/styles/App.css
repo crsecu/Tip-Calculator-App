@@ -2,20 +2,24 @@ body {
   color: var(--label);
 }
 
-
-
-
 .tip-calculator {
- background-color: var(--calculator--background);
- margin-top: 8rem; /*adjust this after adding logo images*/
- padding: 1.5rem;
- border-radius: 17px 17px 0 0;
+  background-color: var(--calculator--background);
+  margin-top: 8rem; /*adjust this after adding logo images*/
+  padding: 2rem;
+  border-radius: 17px 17px 0 0;
 }
 
+.tip-calculator__label {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.selectTip {
+  margin-top: 20px;
+}
 
 @media screen and (max-width: 600px) {
   body {
-      background-color:pink;
+    background-color: pink;
   }
 }
-

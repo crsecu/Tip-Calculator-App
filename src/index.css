@@ -2,21 +2,61 @@
 :root {
   --background: hsl(185, 41%, 84%);
   --calculator--background: hsl(0, 0%, 100%);
-  --dark-green: hsl(183, 100%, 15%); /*this color is used for: predefined buttons, input font color, reset button font color */
+  --dark-green: hsl(
+    183,
+    100%,
+    15%
+  ); /*this color is used for: predefined buttons, input font color, reset button font color */
   --dollar-amount: hsl(172, 67%, 45%);
   --label: hsl(186, 14%, 43%);
-  --placeholder: hsl(184, 14%, 56%); /*this color is used for the placeholder values inside the input fields*/
-  --input--background: hsl(189, 41%, 97%); 
+  --placeholder: hsl(
+    184,
+    14%,
+    56%
+  ); /*this color is used for the placeholder values inside the input fields*/
+  --input--background: hsl(189, 41%, 97%);
   --error-message: hsl(24, 100%, 65%);
+  --active-state: hsl(176, 60%, 80%);
 }
-
 
 body {
   margin: 0;
-  font-family: 'Space Mono', monospace;
+  font-family: "Space Mono", monospace;
   box-sizing: border-box;
   font-size: 1rem;
   font-weight: 700;
   background-color: var(--background);
 }
 
+/* ----- Hide Arrows from Input Number ----- */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+/* ----- End of Hide Arrows from Input Number ----- */
+
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  text-align: right;
+  color: var(--label);
+}
+
+button:active {
+  background-color: var(--dollar-amount);
+}
+
+input {
+  text-align: right;
+}
+
+button:focus,
+input:focus {
+  outline-color: var(--dollar-amount);
+}
