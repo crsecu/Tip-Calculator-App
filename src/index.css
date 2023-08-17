@@ -16,7 +16,7 @@
   ); /*this color is used for the placeholder values inside the input fields*/
   --input--background: hsl(189, 41%, 97%);
   --error-message: hsl(24, 100%, 65%);
-  --active-state: hsl(176, 60%, 80%);
+  --active-state: hsl(172, 61%, 80%);
 }
 
 body {
@@ -49,7 +49,8 @@ input[type="number"] {
 }
 
 button:active {
-  background-color: var(--dollar-amount);
+  background-color: var(--active-state);
+  color: var(--dark-green)
 }
 
 input {
