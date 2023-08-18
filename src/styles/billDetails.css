@@ -9,4 +9,7 @@
   text-align: right;
   width: 100%;
   box-sizing: border-box;
+  background-image: url("../images/icon-dollar.svg");
+  background-repeat: no-repeat;
+  background-position: 16px;
 }

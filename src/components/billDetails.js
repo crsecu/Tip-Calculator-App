@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../styles/billDetails.css";
+import iconDollar from "../images/icon-dollar.svg"
 
 export default function BillDetails(props) {
   return (
