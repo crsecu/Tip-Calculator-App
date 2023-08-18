@@ -9,7 +9,18 @@
   text-align: right;
   width: 100%;
   box-sizing: border-box;
-  background-image: url("../images/icon-dollar.svg");
   background-repeat: no-repeat;
   background-position: 16px;
+  
+}
+
+.tip-calculator__icon-dollar {
+  background-image: url("../images/icon-dollar.svg");
+  background-size: 12px;
+  
+}
+
+.tip-calculator__icon-person{
+  background-image: url("../images/icon-person.svg");
+  background-size: 14px;
 }

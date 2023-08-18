@@ -46,6 +46,7 @@ input[type="number"] {
   /* Chrome/Opera/Safari */
   text-align: right;
   color: var(--label);
+  
 }
 
 button:active {

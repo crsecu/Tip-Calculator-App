@@ -6,7 +6,7 @@ export default function BillDetails(props) {
   return (
     <div className="">
       <input
-        className="bill-details__input"
+        className={`bill-details__input ${props.inputIcon}`}
         type={props.type}
         id={props.id}
         placeholder={props.placeholder}

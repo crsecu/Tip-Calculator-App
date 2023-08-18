@@ -4,7 +4,7 @@ import "../styles/button.css";
 export default function Button(props) {
 
     return (
-        <button className = "tip-calculator__button" id = {props.id} value = {props.tip} onClick={props.handleClick} name={props.name}>{props.tip} %</button>
+        <button className = "tip-calculator__button" id = {props.id} value = {props.tip} onClick={props.handleClick} name={props.name}>{props.tip}%</button>
     )
 
 }

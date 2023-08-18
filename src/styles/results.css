@@ -2,7 +2,7 @@
     background-color: var(--dark-green);
     padding: 2rem;
     border-radius: 12px;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 .tip-calculator__tip-summary-container {
@@ -28,5 +28,5 @@
 
 .tip-calculator__amount-due {
     color: var(--dollar-amount);
-    font-size: 1.325rem;
+    font-size: 1.5rem;
 }

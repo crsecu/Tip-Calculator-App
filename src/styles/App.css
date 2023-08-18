@@ -4,9 +4,22 @@ body {
 
 .tip-calculator {
   background-color: var(--calculator--background);
-  margin-top: 8rem; /*adjust this after adding logo images*/
+  margin-top: 9rem; /*adjust this after adding logo images*/
   padding: 2rem;
   border-radius: 17px 17px 0 0;
+}
+
+.tip-calculator__logo {
+  position: absolute;
+  top: 50px;
+  
+}
+
+.tip-calculator-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
 }
 
 .tip-calculator__label {
