@@ -5,7 +5,7 @@ body {
 .tip-calculator {
   background-color: var(--calculator--background);
   margin-top: 9rem; /*adjust this after adding logo images*/
-  padding: 2rem;
+  padding: 32px;
   border-radius: 17px 17px 0 0;
 }
 
@@ -34,5 +34,27 @@ body {
 @media screen and (max-width: 600px) {
   body {
     background-color: pink;
+  }
+}
+
+
+@media screen and (min-width: 992px) {
+  body {
+    /* background-color: rgb(221, 12, 183); */
+  }
+
+  .tip-calculator {
+    display: flex;
+    column-gap: 36px;
+    padding: 0 30px 0 34px;
+   }
+
+   .tip-calculator__form {
+    width: 350px;
+    margin: 32px 0 40px 0;
+   }
+
+   .tip-calculator__label {
+    margin-bottom: 6px;
   }
 }

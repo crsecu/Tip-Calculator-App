@@ -30,3 +30,14 @@
     color: var(--dollar-amount);
     font-size: 1.5rem;
 }
+
+@media screen and (min-width: 992px) {
+    .tip-calculator__results { 
+        width: 300px;
+        margin: 32px 0;
+    }
+
+    .tip-calculator__amount-due {
+        font-size: 2rem;
+    }
+}

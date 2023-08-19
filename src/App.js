@@ -108,7 +108,7 @@ function App() {
       event.preventDefault();
     }
   }
-
+  
   console.log("print tips", calculateTips());
   // display results
   const totalTips = calculateTips();
@@ -123,7 +123,7 @@ function App() {
     <div className="tip-calculator-wrapper">
         <img src={logo} className = "tip-calculator__logo" alt="Spliter - Tip Calculator Logo" />
       <div className="tip-calculator">
-        <form onSubmit={(event) => event.preventDefault()}>
+        <form className="tip-calculator__form" onSubmit={(event) => event.preventDefault()}>
           <label className="tip-calculator__label" htmlFor="bill">
             Bill
           </label>

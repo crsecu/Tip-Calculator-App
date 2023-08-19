@@ -20,6 +20,7 @@
 .tip-calculator__customTip-button {
   box-sizing: border-box;
   background-color: var(--input--background);
+  color: var(--dark-green);
 }
 
 .tip-calculator__reset-button {
@@ -30,4 +31,15 @@
   font-size: 1.25rem;
   color: var(--dark-green);
   margin-top: 24px;
+}
+
+@media screen and (min-width: 992px) {
+  .tip-calculator__button-container .tip-calculator__button {
+    width: calc(33.33% - 8px);
+  }
+
+  .tip-calculator__reset-button {
+    margin-top: 110px;;
+    
+  }
 }

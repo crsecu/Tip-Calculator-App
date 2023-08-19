@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import "../styles/billDetails.css";
-import iconDollar from "../images/icon-dollar.svg"
 
 export default function BillDetails(props) {
   return (
-    <div className="">
+    <div>
       <input
         className={`bill-details__input ${props.inputIcon}`}
         type={props.type}
