@@ -1,43 +1,43 @@
 .tip-calc__results {
-    background-color: var(--dark-green);
-    padding: 2rem;
-    border-radius: 12px;
-    margin-top: 30px;
+  background-color: var(--dark-green);
+  padding: 2rem;
+  border-radius: 12px;
+  margin-top: 30px;
 }
 
 .tip-calc__tip-summary-container {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .tip-calc__tip-summary {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .tip-calc__tip-info {
-    display: flex;
-    flex-direction: column;
-    font-size: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.75rem;
 }
 
 .tip-calc__tip-label {
-    color: var(--background);
+  color: var(--background);
 }
 
 .tip-calc__amount-due {
-    color: var(--dollar-amount);
-    font-size: 1.5rem;
+  color: var(--dollar-amount);
+  font-size: 1.5rem;
 }
 
-@media screen and (min-width: 992px) {
-    .tip-calc__results { 
-        width: 300px;
-        margin: 32px 0;
-    }
+@media screen and (min-width: 1025px) {
+  .tip-calc__results {
+    width: 300px;
+    margin: 32px 0;
+  }
 
-    .tip-calc__amount-due {
-        font-size: 2rem;
-    }
+  .tip-calc__amount-due {
+    font-size: 2rem;
+  }
 }

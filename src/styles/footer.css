@@ -1,0 +1,15 @@
+.tip_calc__footer {
+    text-align: center;
+    margin-top: auto;
+    font-size: 0.875rem;
+    padding: 10px;
+}
+
+.tip_calc__footer-link {
+    text-decoration: none;
+    color: var(--dark-green);
+}
+
+.tip_calc__footer-link:visited {
+    color: var(--dark-green);
+}

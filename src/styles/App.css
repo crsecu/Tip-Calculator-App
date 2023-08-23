@@ -16,6 +16,7 @@ body {
 
 .tip-calc-wrapper {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -29,17 +30,15 @@ body {
   margin-top: 20px;
 }
 
-@media screen and (max-width: 600px) {
-  body {
-    background-color: pink;
+@media screen and (min-width: 820px) {
+  .tip-calc-wrapper {
+    height: 100vh;
   }
 }
 
-@media screen and (min-width: 992px) {
-  body {
-    /* background-color: rgb(221, 12, 183); */
-  }
-
+@media screen and (min-width: 1025px) {
+  
+  
   .tip-calc {
     display: flex;
     column-gap: 36px;
@@ -54,5 +53,16 @@ body {
 
   .tip-calc__label {
     margin-bottom: 6px;
+  }
+
+  
+}
+
+@media screen and (min-width: 1280px) {
+  .tip-calc {
+    margin-top: 16rem;
+  }
+  .tip-calc__logo {
+    top: 120px;
   }
 }

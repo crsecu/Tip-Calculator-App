@@ -20,6 +20,9 @@
   --empty-state: hsl(183, 79%, 24%);
 }
 
+body, html {
+  height: 100%;
+}
 body {
   margin: 0;
   font-family: "Space Mono", monospace;
@@ -49,6 +52,10 @@ input[type="number"] {
   color: var(--label);
 }
 
+button {
+  cursor: pointer;
+}
+
 button:active {
   background-color: var(--active-state);
   color: var(--dark-green);
@@ -56,6 +63,7 @@ button:active {
 
 input {
   text-align: right;
+  cursor: pointer;
 }
 
 button:focus,
