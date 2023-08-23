@@ -1,43 +1,43 @@
-.tip-calculator__results {
+.tip-calc__results {
     background-color: var(--dark-green);
     padding: 2rem;
     border-radius: 12px;
     margin-top: 30px;
 }
 
-.tip-calculator__tip-summary-container {
+.tip-calc__tip-summary-container {
     display: flex;
     flex-direction: column;
     gap: 16px;
 }
 
-.tip-calculator__tip-summary {
+.tip-calc__tip-summary {
     display: flex;
     justify-content: space-between;
 }
 
-.tip-calculator__tip-info {
+.tip-calc__tip-info {
     display: flex;
     flex-direction: column;
     font-size: 0.75rem;
 }
 
-.tip-calculator__tip-label {
+.tip-calc__tip-label {
     color: var(--background);
 }
 
-.tip-calculator__amount-due {
+.tip-calc__amount-due {
     color: var(--dollar-amount);
     font-size: 1.5rem;
 }
 
 @media screen and (min-width: 992px) {
-    .tip-calculator__results { 
+    .tip-calc__results { 
         width: 300px;
         margin: 32px 0;
     }
 
-    .tip-calculator__amount-due {
+    .tip-calc__amount-due {
         font-size: 2rem;
     }
 }

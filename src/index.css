@@ -15,8 +15,9 @@
     56%
   ); /*this color is used for the placeholder values inside the input fields*/
   --input--background: hsl(189, 41%, 97%);
-  --error-message: hsl(24, 100%, 65%);
+  --error-message: hsl(28, 71%, 54%);
   --active-state: hsl(172, 61%, 80%);
+  --empty-state: hsl(183, 79%, 24%);
 }
 
 body {
@@ -46,12 +47,11 @@ input[type="number"] {
   /* Chrome/Opera/Safari */
   text-align: right;
   color: var(--label);
-  
 }
 
 button:active {
   background-color: var(--active-state);
-  color: var(--dark-green)
+  color: var(--dark-green);
 }
 
 input {
