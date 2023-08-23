@@ -20,7 +20,8 @@
   --empty-state: hsl(183, 79%, 24%);
 }
 
-body, html {
+body,
+html {
   height: 100%;
 }
 body {

@@ -12,20 +12,18 @@
   box-sizing: border-box;
   background-repeat: no-repeat;
   background-position: 16px;
-  
 }
 
 .tip-calc__icon-dollar {
   background-image: url("../images/icon-dollar.svg");
   background-size: 12px;
-  
 }
 
 .tip-calc__input-container {
   position: relative;
 }
 
-.tip-calc__icon-person{
+.tip-calc__icon-person {
   background-image: url("../images/icon-person.svg");
   background-size: 14px;
 }

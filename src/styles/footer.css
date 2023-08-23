@@ -7,9 +7,19 @@
 
 .tip_calc__footer-link {
     text-decoration: none;
-    color: var(--dark-green);
+    color: var(--label);
 }
 
-.tip_calc__footer-link:visited {
-    color: var(--dark-green);
+.tip_calc__footer-link:visited, .coded-by:visited {
+    color: var(--label);
 }
+
+.coded-by {
+    color: var(--dark-green) !important;
+}
+
+@media (max-width: 280px) {
+    .tip_calc__footer {
+        font-size: 0.75rem;
+    }
+ }

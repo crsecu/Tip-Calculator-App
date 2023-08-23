@@ -4,7 +4,7 @@ body {
 
 .tip-calc {
   background-color: var(--calculator--background);
-  margin-top: 9rem; /*adjust this after adding logo images*/
+  margin-top: 9rem;
   padding: 32px;
   border-radius: 17px 17px 0 0;
 }
@@ -30,15 +30,27 @@ body {
   margin-top: 20px;
 }
 
-@media screen and (min-width: 820px) {
+/* media query for Galaxy Fold */
+@media (max-width: 280px) {
+  body {
+    font-size: 0.875rem;
+  }
+  .tip-calc {
+    padding: 18px;
+  }
+
+  .tip-calc .tip-calc__results {
+    padding: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
   .tip-calc-wrapper {
-    height: 100vh;
+    min-height: 100vh;
   }
 }
 
 @media screen and (min-width: 1025px) {
-  
-  
   .tip-calc {
     display: flex;
     column-gap: 36px;
@@ -54,8 +66,6 @@ body {
   .tip-calc__label {
     margin-bottom: 6px;
   }
-
-  
 }
 
 @media screen and (min-width: 1280px) {
