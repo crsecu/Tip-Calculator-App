@@ -3,6 +3,7 @@
     margin-top: auto;
     font-size: 0.875rem;
     padding: 10px;
+    font-weight: initial;
 }
 
 .tip_calc__footer-link {
@@ -16,6 +17,7 @@
 
 .coded-by {
     color: var(--dark-green) !important;
+    font-weight: 600;
 }
 
 @media (max-width: 280px) {
