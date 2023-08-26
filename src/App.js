@@ -73,7 +73,7 @@ function App() {
       tipPerPerson = tip / numberOfPeople; // calculate tip per person
       totalPerPerson = billPerPerson + tipPerPerson; //calculate total per person, including tips
     } 
-    
+
     return {
       tipPerPerson: isNaN(tipPerPerson) ? 0 : tipPerPerson, // Handle NaN case
       totalPerPerson: isNaN(totalPerPerson) ? 0 : totalPerPerson, // Handle NaN case
