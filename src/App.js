@@ -165,13 +165,13 @@ function App() {
               preventKeyPress(event);
             }}
           />
-          <label className="tip-calc__label selectTip" htmlFor="selectTip">
+          <br/>
+          <fieldset>
+          <legend className="tip-calc__label selectTip" htmlFor="selectTip">
             Select Tip %
-          </label>
-          <br></br>
+          </legend>
           <div className="tip-calc__button-container">
             <Button
-              id="selectTip"
               tip={5}
               handleClick={(event) => {
                 handleTipSelection(5, event);
@@ -184,7 +184,6 @@ function App() {
               className={clickedBtn === 1 ? "clicked" : ""}
             />
             <Button
-              id="selectTip"
               tip={10}
               handleClick={(event) => {
                 handleTipSelection(10, event);
@@ -197,7 +196,6 @@ function App() {
               className={clickedBtn === 2 ? "clicked" : ""}
             />
             <Button
-              id="selectTip"
               tip={15}
               handleClick={(event) => {
                 handleTipSelection(15, event);
@@ -210,7 +208,6 @@ function App() {
               className={clickedBtn === 3 ? "clicked" : ""}
             />
             <Button
-              id="selectTip"
               tip={25}
               handleClick={(event) => {
                 handleTipSelection(25, event);
@@ -223,7 +220,6 @@ function App() {
               className={clickedBtn === 4 ? "clicked" : ""}
             />
             <Button
-              id="selectTip"
               tip={50}
               handleClick={(event) => {
                 handleTipSelection(50, event);
@@ -257,6 +253,7 @@ function App() {
             />
           </div>
           <br />
+          </fieldset>
           <label className="tip-calc__label" htmlFor="numberOfPeople">
             Number of People
           </label>

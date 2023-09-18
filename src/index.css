@@ -71,3 +71,9 @@ button:focus,
 input:focus {
   outline-color: var(--dollar-amount);
 }
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0; 
+}
