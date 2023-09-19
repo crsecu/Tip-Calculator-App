@@ -244,10 +244,11 @@ function App() {
                 } else {
                   console.log("Value has to be greater than 0.");
                 }
+
+                setClickedBtnColor(null);
               }}
               onKeyDown={(event) => {
                 preventKeyPress(event);
-                setClickedBtnColor(null);
               }}
               name="customTip"
             />
